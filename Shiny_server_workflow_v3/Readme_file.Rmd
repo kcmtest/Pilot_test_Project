@@ -1,0 +1,44 @@
+---
+title: "h5ad_loom_single_Cell"
+author: "kcm"
+date: "2023-06-12"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## h5ad loom file single cell basic analysis documentation.
+
+There are two version h5ad_loom_v1.R and h5ad_loom_v2.R
+
+# Objective
+1. Take either h5ad or loom file.
+2. Seurat Single cell Pipeline implementation.
+3. Cluster export function given a user defined cluster.
+4. Gene export fucntion given a defined cluster log2fold change threshold.
+
+
+# Features: h5ad_loom_v1.R
+
+1. Can take both input : .h5ad and .loom files
+2. Run the basic seurat pipeline which included scaling,normaliszation,PCA,clustering.
+3. Cluster export both h5ad and loom file.
+4. Gene export matching defined cluster only working for loom file not for h5ad file because the assigned cluster label for h5ad and the output gene cluster doesn't match where as loom file it works since both gene and cell types are assigned as numerical clusters.
+
+
+# Features: h5ad_loom_v2.R
+
+1. Can take both input : .h5ad and .loom files
+2. Run the basic seurat pipeline which included scaling,normaliszation,PCA,clustering.
+3. Cluster export both h5ad and loom file.
+4. Gene export matching the defined cluster works for loom file and h5ad file because the assigned cluster label and the output of the gene cluster where both are numerical are matching.
+
+# Issues
+
+1. For h5ad files when cluster annotation is set to louvain for h5ad then there is a mapping issue with the gene clusters which need to be addressed how to have a common mapping identifier.
+2. For loom file inside the seurat object there are no louvain cluster assigned.
+
+
+
